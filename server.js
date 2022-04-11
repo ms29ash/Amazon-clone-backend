@@ -1,7 +1,8 @@
 import express from 'express';
 import ConnectToMongo from './db.js';
 import Cors from 'cors';
-import Services from './Models/Services.js'
+import serviceRouter from './Router/services.js'
+import authRouter from './Router/auth.js'
 
 // App config
 const app = express();
@@ -32,17 +33,9 @@ app.get('/', (req, res) => {
 //     });
 
 // })
-app.get('/services', (req, res) => {
-    Services.find((err, data) => {
-        if (err) {
-            res.status(500).send(err)
-        } else {
+app.use('/services', serviceRouter);
+app.use('/auth', authRouter);
 
-            res.status(200).send(data)
-        }
-
-    })
-})
 
 
 
