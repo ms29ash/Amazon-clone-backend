@@ -4,7 +4,8 @@ const ProductSchema = mongoose.Schema({
 
     position: {
         page: {
-            type: Number
+            type: Number,
+            index: true
         },
         position: {
             type: Number
