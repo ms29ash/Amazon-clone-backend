@@ -3,6 +3,7 @@ import ConnectToMongo from './db.js';
 import Cors from 'cors';
 import serviceRouter from './Router/services.js'
 import authRouter from './Router/auth.js'
+import productRouter from './Router/product.js'
 
 // App config
 const app = express();
@@ -35,6 +36,7 @@ app.get('/', (req, res) => {
 // })
 app.use('/services', serviceRouter);
 app.use('/auth', authRouter);
+app.use('/product', productRouter);
 
 
 
